@@ -1,0 +1,222 @@
+{
+  "name": "rds-viewer",
+  "displayName": "RDS Viewer",
+  "description": "View and explore R Data Serialization (RDS) files in Visual Studio Code",
+  "version": "1.0.0",
+  "publisher": "bluenote-rds",
+  "author": {
+    "name": "jong hoon kim, Ph.D."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hoon-snuecse/rds-viewer"
+  },
+  "bugs": {
+    "url": "https://github.com/hoon-snuecse/rds-viewer/issues"
+  },
+  "homepage": "https://github.com/hoon-snuecse/rds-viewer#readme",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1e6ba8",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Data Science",
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "R",
+    "RDS",
+    "data",
+    "viewer",
+    "statistics"
+  ],
+  "activationEvents": [
+    "onCustomEditor:rdsViewer.editor"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "rds.openFile",
+        "title": "Open RDS File",
+        "category": "RDS",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "rds.openViewer",
+        "title": "Open with RDS Viewer",
+        "category": "RDS",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "rds.preview",
+        "title": "Open RDS Data View",
+        "category": "RDS",
+        "icon": {
+          "light": "./media/preview-light.svg",
+          "dark": "./media/preview-dark.svg"
+        }
+      },
+      {
+        "command": "rds.summary",
+        "title": "Show RDS Summary",
+        "category": "RDS",
+        "icon": {
+          "light": "./media/summary-light.svg",
+          "dark": "./media/summary-dark.svg"
+        }
+      },
+      {
+        "command": "rds.refresh",
+        "title": "Refresh RDS View",
+        "category": "RDS"
+      },
+      {
+        "command": "rds.exportCsv",
+        "title": "Export to CSV",
+        "category": "RDS",
+        "icon": "$(export)"
+      },
+      {
+        "command": "rds.exportExcel",
+        "title": "Export to Excel",
+        "category": "RDS",
+        "icon": "$(export)"
+      },
+      {
+        "command": "rds.exportJson",
+        "title": "Export to JSON",
+        "category": "RDS",
+        "icon": "$(export)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .rds || resourceExtname == .Rds || resourceExtname == .RDS",
+          "command": "rds.openFile",
+          "group": "navigation@0"
+        },
+        {
+          "when": "resourceExtname == .rds || resourceExtname == .Rds || resourceExtname == .RDS",
+          "command": "rds.summary",
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceExtname == .rds || resourceExtname == .Rds || resourceExtname == .RDS",
+          "command": "rds.preview",
+          "group": "navigation@2"
+        },
+        {
+          "when": "resourceExtname == .rds || resourceExtname == .Rds || resourceExtname == .RDS",
+          "command": "rds.exportCsv",
+          "group": "export@1"
+        },
+        {
+          "when": "resourceExtname == .rds || resourceExtname == .Rds || resourceExtname == .RDS",
+          "command": "rds.exportExcel",
+          "group": "export@2"
+        },
+        {
+          "when": "resourceExtname == .rds || resourceExtname == .Rds || resourceExtname == .RDS",
+          "command": "rds.exportJson",
+          "group": "export@3"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "resourceExtname == .rds || resourceExtname == .Rds || resourceExtname == .RDS",
+          "command": "rds.summary",
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceExtname == .rds || resourceExtname == .Rds || resourceExtname == .RDS",
+          "command": "rds.preview",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "customEditors": [
+      {
+        "viewType": "rdsViewer.editor",
+        "displayName": "RDS Viewer",
+        "selector": [
+          {
+            "filenamePattern": "*.rds"
+          },
+          {
+            "filenamePattern": "*.Rds"
+          },
+          {
+            "filenamePattern": "*.RDS"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "files.associations": {
+      "*.rds": "rds-binary",
+      "*.Rds": "rds-binary",
+      "*.RDS": "rds-binary"
+    },
+    "configuration": {
+      "title": "RDS Viewer",
+      "properties": {
+        "rdsViewer.rPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to R executable (leave empty to auto-detect)"
+        },
+        "rdsViewer.maxPreviewRows": {
+          "type": "number",
+          "default": 1000,
+          "description": "Maximum number of rows to display in preview"
+        },
+        "rdsViewer.showSummaryOnOpen": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show summary information when opening RDS files"
+        },
+        "rdsViewer.summaryPanelPosition": {
+          "type": "string",
+          "enum": [
+            "top",
+            "left",
+            "right",
+            "popup"
+          ],
+          "default": "left",
+          "description": "Position of the summary panel"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {}
+}

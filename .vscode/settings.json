@@ -1,0 +1,7 @@
+{
+    "workbench.editorAssociations": {
+        "*.rds": "rdsViewer.editor",
+        "*.Rds": "rdsViewer.editor", 
+        "*.RDS": "rdsViewer.editor"
+    }
+}

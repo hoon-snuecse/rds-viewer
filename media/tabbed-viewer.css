@@ -1,0 +1,689 @@
+/* Excel-like RDS Viewer Styles */
+
+.rds-viewer-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--vscode-editor-background);
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Data Header */
+.data-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--vscode-editor-background);
+    border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+    font-size: 13px;
+}
+
+.row-count {
+    color: var(--vscode-descriptionForeground);
+    font-size: 12px;
+}
+
+/* Emphasized data dimensions */
+.data-dimensions {
+    color: var(--vscode-textLink-foreground);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.data-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.navigation-controls {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 8px;
+    border: 1px solid var(--vscode-input-border);
+    border-radius: 4px;
+    background: var(--vscode-input-background);
+}
+
+.navigation-controls input {
+    padding: 2px 4px;
+    background: transparent;
+    color: var(--vscode-input-foreground);
+    border: none;
+    font-size: 12px;
+}
+
+.navigation-controls input:focus {
+    outline: none;
+    background: var(--vscode-input-background);
+}
+
+.column-navigation {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 8px;
+    border: 1px solid var(--vscode-input-border);
+    border-radius: 3px;
+    background: var(--vscode-input-background);
+}
+
+#column-navigation-info {
+    font-size: 11px;
+    color: var(--vscode-descriptionForeground);
+    min-width: 100px;
+    text-align: center;
+}
+
+#data-search {
+    padding: 4px 8px;
+    background: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    border: 1px solid var(--vscode-input-border);
+    border-radius: 3px;
+    font-size: 12px;
+    width: 200px;
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+    color: var(--vscode-foreground);
+}
+
+.btn-icon:hover {
+    background: var(--vscode-toolbar-hoverBackground);
+}
+
+/* Navigation buttons */
+.btn-nav {
+    background: var(--vscode-button-secondaryBackground);
+    border: 1px solid var(--vscode-button-border);
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 3px;
+    color: var(--vscode-button-secondaryForeground);
+    min-width: 32px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navigation buttons with text */
+.btn-nav-text {
+    background: var(--vscode-button-secondaryBackground);
+    border: 1px solid var(--vscode-button-border);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    color: var(--vscode-button-secondaryForeground);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: all 0.2s ease;
+}
+
+.btn-nav-text:hover {
+    background: var(--vscode-button-secondaryHoverBackground);
+}
+
+.btn-nav-text:active {
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+}
+
+.btn-nav:hover {
+    background: var(--vscode-button-secondaryHoverBackground);
+}
+
+.btn-nav:active {
+    background: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+}
+
+/* Data Table Container */
+.data-table-container {
+    flex: 1;
+    overflow: auto;
+    background: var(--vscode-editor-background);
+    height: 100%;
+}
+
+/* Data Table */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--vscode-editor-font-family);
+    font-size: 12px;
+}
+
+.data-table thead {
+    background: var(--vscode-editor-background);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.data-table th {
+    padding: 6px 10px;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid var(--vscode-panel-border);
+    background: var(--vscode-sideBar-background);
+    color: var(--vscode-foreground);
+    white-space: nowrap;
+}
+
+/* Column header with number */
+.column-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.column-number {
+    font-size: 10px;
+    color: var(--vscode-descriptionForeground);
+    opacity: 0.7;
+    font-weight: normal;
+    background: var(--vscode-badge-background);
+    padding: 1px 4px;
+    border-radius: 2px;
+    min-width: 20px;
+    text-align: center;
+    display: inline-block;
+}
+
+.column-name {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.data-table td {
+    padding: 4px 10px;
+    border: 1px solid var(--vscode-panel-border);
+    color: var(--vscode-foreground);
+    white-space: nowrap;
+}
+
+/* Row hover effect with column highlight */
+.data-table tbody tr:hover {
+    background: rgba(135, 206, 250, 0.1) !important;
+}
+
+.data-table tbody tr:hover td {
+    position: relative;
+}
+
+/* Focused cell styling - transparent sky blue */
+.data-table tbody td:focus {
+    background-color: rgba(135, 206, 250, 0.15) !important; /* Light sky blue with transparency */
+    outline: 1px solid rgba(135, 206, 250, 0.4);
+    position: relative;
+    z-index: 3;
+}
+
+/* Column highlight on cell hover */
+.data-table td:hover::after,
+.data-table th:hover::after {
+    content: '';
+    position: absolute;
+    top: -1000px;
+    bottom: -1000px;
+    left: -1px;
+    right: -1px;
+    background: var(--vscode-list-hoverBackground);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Highlighted row from navigation */
+.highlighted-row {
+    background: rgba(135, 206, 250, 0.25) !important; /* Light sky blue for navigation */
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Highlighted cell from navigation */
+.highlighted-cell {
+    background: rgba(135, 206, 250, 0.35) !important; /* Stronger sky blue for focused cell */
+    box-shadow: inset 0 0 0 2px rgba(135, 206, 250, 0.6);
+    position: relative;
+    z-index: 1;
+}
+
+/* Pulse animation for navigation */
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* Selected cell and row (persistent selection) */
+.selected-row {
+    background: rgba(135, 206, 250, 0.2) !important; /* Light sky blue with transparency */
+}
+
+.selected-cell {
+    background: rgba(135, 206, 250, 0.3) !important; /* Slightly stronger sky blue */
+    box-shadow: inset 0 0 0 1px rgba(135, 206, 250, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+/* Ensure row number column stays visible */
+.data-table tbody tr.selected-row .row-number {
+    background: var(--vscode-list-activeSelectionBackground);
+    font-weight: bold;
+}
+
+.data-table .row-number {
+    width: 40px;
+    text-align: center;
+    background: var(--vscode-sideBar-background);
+    color: var(--vscode-descriptionForeground);
+    font-weight: 500;
+    position: sticky;
+    left: 0;
+    z-index: 5;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    background: var(--vscode-editor-background);
+    border-bottom: 1px solid var(--vscode-panel-border);
+    padding: 0 10px;
+}
+
+.tab-button {
+    padding: 8px 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--vscode-foreground);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: var(--vscode-font-family);
+    transition: all 0.2s;
+}
+
+.tab-button:hover {
+    background: var(--vscode-list-hoverBackground);
+}
+
+.tab-button.active {
+    color: var(--vscode-panelTitle-activeForeground);
+    border-bottom-color: var(--vscode-panelTitle-activeBorder, var(--vscode-focusBorder));
+    background: var(--vscode-editor-background);
+}
+
+/* Tab Content */
+.tab-content {
+    flex: 1;
+    overflow: hidden;
+    background: var(--vscode-editor-background);
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-panel {
+    display: none;
+    height: 100%;
+    overflow: auto;
+    flex: 1;
+    flex-direction: column;
+}
+
+.tab-panel.active {
+    display: flex !important;
+}
+
+/* Data Content */
+.data-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Full Summary Styles */
+.full-summary {
+    padding: 20px;
+    max-width: 100%;
+    margin: 0;
+}
+
+.summary-section {
+    margin-bottom: 25px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+}
+
+.summary-section h3 {
+    margin: 0 0 12px 0;
+    font-size: 13px;
+    color: var(--vscode-foreground);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 20px;
+}
+
+.info-item {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    align-items: center;
+}
+
+.info-item .label {
+    font-weight: 600;
+    color: var(--vscode-descriptionForeground);
+    min-width: 120px;
+}
+
+.info-item .value {
+    color: var(--vscode-foreground);
+}
+
+/* Summary Table */
+.variables-table {
+    overflow-x: auto;
+    padding-left: 20px;
+    max-width: 1200px;
+}
+
+.summary-table {
+    width: auto;
+    min-width: 600px;
+    max-width: 1000px;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.summary-table th {
+    padding: 6px 12px;
+    text-align: left;
+    font-weight: 600;
+    background: var(--vscode-editor-background);
+    border-bottom: 1px solid var(--vscode-panel-border);
+    color: var(--vscode-descriptionForeground);
+    font-size: 11px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.summary-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--vscode-widget-border);
+    background: transparent;
+    white-space: nowrap;
+}
+
+/* Column-specific widths */
+.summary-table th:nth-child(1),
+.summary-table td:nth-child(1) {
+    width: 150px;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.summary-table th:nth-child(2),
+.summary-table td:nth-child(2) {
+    width: 100px;
+}
+
+.summary-table th:nth-child(3),
+.summary-table td:nth-child(3) {
+    width: 100px;
+}
+
+.summary-table th:nth-child(4),
+.summary-table td:nth-child(4) {
+    width: 80px;
+    text-align: right;
+}
+
+.summary-table td:nth-child(4) {
+    text-align: right;
+}
+
+.summary-table th:nth-child(5),
+.summary-table td:nth-child(5) {
+    width: 100px;
+    text-align: right;
+}
+
+.summary-table td:nth-child(5) {
+    text-align: right;
+}
+
+.summary-table th:nth-child(6),
+.summary-table td:nth-child(6) {
+    width: 200px;
+    max-width: 300px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.summary-table .var-name {
+    font-weight: 600;
+    color: var(--vscode-textLink-foreground);
+    display: inline-block;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.summary-table .summary-text {
+    font-size: 11px;
+    color: var(--vscode-descriptionForeground);
+    display: inline-block;
+    max-width: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Alternating row colors for better readability */
+.summary-table tbody tr:nth-child(even) {
+    background: var(--vscode-widget-background);
+}
+
+.summary-table tbody tr:hover {
+    background: var(--vscode-list-hoverBackground);
+}
+
+/* Compact Summary */
+.compact-summary {
+    font-size: 12px;
+}
+
+.summary-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.summary-item .label {
+    font-weight: 600;
+    color: var(--vscode-descriptionForeground);
+}
+
+.summary-item .value {
+    color: var(--vscode-foreground);
+}
+
+/* Data Info */
+.data-info {
+    font-size: 12px;
+}
+
+.columns-list h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--vscode-foreground);
+}
+
+.columns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.column-item {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 10px;
+    background: var(--vscode-widget-background);
+    border: 1px solid var(--vscode-widget-border);
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.col-name {
+    font-weight: 600;
+    color: var(--vscode-textLink-foreground);
+}
+
+.col-type {
+    font-size: 11px;
+    color: var(--vscode-descriptionForeground);
+    background: var(--vscode-badge-background);
+    padding: 1px 6px;
+    border-radius: 2px;
+}
+
+.col-stats {
+    display: flex;
+    gap: 10px;
+    font-size: 11px;
+    color: var(--vscode-descriptionForeground);
+}
+
+.col-stats .stat {
+    white-space: nowrap;
+}
+
+/* Search Highlight */
+.highlight {
+    background: var(--vscode-editor-findMatchHighlightBackground);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.current-highlight {
+    background: var(--vscode-editor-findMatchBackground) !important;
+    box-shadow: 0 0 0 1px var(--vscode-editor-findMatchHighlightBorder);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* Export Menu */
+.export-menu {
+    position: absolute;
+    background: var(--vscode-menu-background);
+    border: 1px solid var(--vscode-menu-border);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 150px;
+}
+
+.export-option {
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--vscode-menu-foreground);
+}
+
+.export-option:hover {
+    background: var(--vscode-menu-selectionBackground);
+    color: var(--vscode-menu-selectionForeground);
+}
+
+/* Hide unnecessary elements (removed .tab-panels from here) */
+.tab-container,
+.info-card,
+.stats-grid {
+    display: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--vscode-scrollbar-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--vscode-scrollbarSlider-background);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--vscode-scrollbarSlider-hoverBackground);
+}

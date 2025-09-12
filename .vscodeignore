@@ -1,0 +1,15 @@
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+.yarnrc
+tsconfig.json
+.git/**
+**/*.map
+**/*.ts
+node_modules/**
+excel-viewer-source/**
+test-data/create_sample_rds.R
+RDS_SUMMARY_SPEC.md
+RDS_VIEWER_DEVELOPMENT_PLAN.md
+*.vsix
