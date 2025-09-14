@@ -2,7 +2,7 @@
   "name": "rds-viewer",
   "displayName": "RDS Viewer",
   "description": "View and explore R Data Serialization (RDS) files in Visual Studio Code",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "publisher": "bluenote-rds",
   "author": {
     "name": "jong hoon kim, Ph.D."

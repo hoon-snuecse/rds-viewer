@@ -182,10 +182,10 @@ export class RdsCustomEditor implements vscode.CustomReadonlyEditorProvider {
                     <!-- Tab Navigation -->
                     <div class="tab-navigation">
                         <button class="tab-button ${activeTab === 'summary' ? 'active' : ''}" data-tab="summary" id="summary-tab-btn">
-                            요약
+                            Schema
                         </button>
                         <button class="tab-button ${activeTab === 'data' ? 'active' : ''}" data-tab="data" id="data-tab-btn">
-                            데이터
+                            Data
                         </button>
                     </div>
                     

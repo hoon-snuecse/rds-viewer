@@ -43,7 +43,7 @@
 
 ## Installation
 
-1. Install the extension from VS Code Marketplace (coming soon)
+1. Install the extension from VS Code Marketplace
 2. Or install from VSIX file:
    ```bash
    code --install-extension rds-viewer-1.0.0.vsix

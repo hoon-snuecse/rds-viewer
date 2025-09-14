@@ -1,0 +1,14 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue circle background -->
+  <circle cx="64" cy="64" r="60" fill="#276DC3"/>
+  
+  <!-- White "RDS" text on top line -->
+  <text x="64" y="66" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">
+    RDS
+  </text>
+  
+  <!-- White "Viewer" text on bottom line -->
+  <text x="64" y="90" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="normal" fill="white" text-anchor="middle">
+    Viewer
+  </text>
+</svg>
